@@ -4,7 +4,7 @@ const app = express();
 const bodyparser = require('body-parser');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/contactMessage', {useNewUrlParser: true})
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 const contactSchema = new mongoose.Schema({
     fullname: String,
@@ -45,6 +45,6 @@ app.post('/register', (req, res)=>{
 
 
 // START THE SERVER
-app.listen((port||process.env.PORT), ()=>{
+app.listen(port, ()=>{
     console.log(`The application started successfully on port ${port}`);
 });
