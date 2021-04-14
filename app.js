@@ -3,7 +3,10 @@ const path = require("path");
 const app = express();
 const bodyparser = require('body-parser');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/contactMessage', {useNewUrlParser: true})
+mongoose.connect('mongodb://localhost:27017/contactMessage', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
 const port = process.env.PORT || 8000;
 
 const contactSchema = new mongoose.Schema({
