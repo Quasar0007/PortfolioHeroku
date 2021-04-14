@@ -18,7 +18,9 @@ const contactSchema = new mongoose.Schema({
 
 const Contact = mongoose.model('Contact', contactSchema);
 // EXPRESS SPECIFIC STUFF
-app.use(express.static('public')); // For serving static files
+if (process.env.NODE_ENV === 'production'){
+    app.use(express.static('public')); // For serving static files
+}
 app.use(express.urlencoded())  
 
 // PUG SPECIFIC STUFF
