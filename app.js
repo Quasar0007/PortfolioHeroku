@@ -44,7 +44,7 @@ app.post('/register', (req, res)=>{
     myData.save().then(()=>{
     res.send("This item has been saved to the database")
     }).catch(()=>{
-    res.send("Item was not saved to the databse")
+    res.send("Thank you for the response")
 })})
 
 
