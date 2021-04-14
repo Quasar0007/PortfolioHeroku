@@ -31,7 +31,7 @@ app.set('view engine', 'html');
 app.get('/', (req, res)=>{
     const con = "This is the best content on the internet so far so use it wisely"
     const params = {'title': 'PubG is the best game', "content": con}
-    res.status(200).sendFile(__dirname+'/index.html');
+    res.sendFile(__dirname+'/index.html');
 })
 
 app.post('/register', (req, res)=>{
@@ -39,7 +39,7 @@ app.post('/register', (req, res)=>{
     myData.save().then(()=>{
     res.send("This item has been saved to the database")
     }).catch(()=>{
-    res.status(400).send("Item was not saved to the databse")
+    res.send("Item was not saved to the databse")
 })})
 
 
